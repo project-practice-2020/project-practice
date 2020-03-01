@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+        <style>
+            table.dataframe, .dataframe th, .dataframe td {
+                border-bottom: 1px solid #C8C8C8;
+                border-collapse: collapse;
+                text-align:left;
+                padding: 10px;
+                margin-bottom: 40px;
+                font-size: 0.9em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ui container" style="padding-top: 10px;">
+            {% set test_all = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10] %}
+            {% set test_upper = remove_empty_strings(test_all) %}
+            {% set test = lower_qualities_names(test_upper) %}
+            {% set q_num = length(test) | int %}
+            {% if q_num == 0 %}
+                {% if age == "от 6 до 8 лет" %}
+                    {% set age_link = "https://adtspb.ru/tag/6-8/" %}
+                {% elif age == "от 9 до 11 лет" %}
+                    {% set age_link = "https://adtspb.ru/tag/9-11/" %}
+                {% elif age == "от 12 до 14 лет" %}
+                    {% set age_link = "https://adtspb.ru/tag/12-14/" %}
+                {% elif age == "от 15 до 18 лет" %}
+                    {% set age_link = "https://adtspb.ru/tag/15-18/" %}
+                {% endif %}
+                <a>Не выбраны качества. Вернитесь на страницу подбора объединений и выберите одно или несколько.</a><br>
+                <a>Если же Вас интересуют направления, подходящие по возрасту {{ age }}, перейдите по </a><a href="{{ age_link }}">ссылке</a><a>.</a><br>
+            {% else %}
+                {% set query = form_query(table, test, q_num, age) %}
+                {% set result = form_result(query, q_num) %}
+                {% if length(result.Unions) > 0 %}
+                    {% for key,value in result.iterrows() %}
+                        <a href="{{ value.Link }}">{{ value.Unions }}</a><br>
+                    {% endfor %}
+                {% else %}
+                    <a>По Вашему запросу не найдены подходящие объединения.</a><br>
+                {% endif %}
+            {% endif %}
+            <br><form action="/"><input type="submit" value="Вернуться"></form>
+        </div>
+    </body>
+</html>

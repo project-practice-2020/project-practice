@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="ui container" style="padding-top: 10px;">
+            <a><form method="post" action="/recs">
+                <label>Выберите качества, которые, по Вашему мнению, наилучшим образом помогут вашему ребенку в дальнейшем:</label><br>
+                <input type="checkbox" name="qual1" value="Сообразительность">Сообразительность<br>
+                <input type="hidden" name="qual1" value="">
+                <input type="checkbox" name="qual2" value="Способности к решению задач">Способности к решению задач<br>
+                <input type="hidden" name="qual2" value="">
+                <input type="checkbox" name="qual3" value="Воображение">Воображение<br>
+                <input type="hidden" name="qual3" value="">
+                <input type="checkbox" name="qual4" value="Абстрактное мышление">Абстрактное мышление<br>
+                <input type="hidden" name="qual4" value="">
+                <input type="checkbox" name="qual5" value="Умение работать в команде">Умение работать в команде<br>
+                <input type="hidden" name="qual5" value="">
+                <input type="checkbox" name="qual6" value="Вживание в роль">Вживание в роль<br>
+                <input type="hidden" name="qual6" value="">
+                <input type="checkbox" name="qual7" value="Грациозность">Грациозность<br>
+                <input type="hidden" name="qual7" value="">
+                <input type="checkbox" name="qual8" value="Усидчивость">Усидчивость<br>
+                <input type="hidden" name="qual8" value="">
+                <input type="checkbox" name="qual9" value="Целеустремленность">Целеустремленность<br>
+                <input type="hidden" name="qual9" value="">
+                <input type="checkbox" name="qual10" value="Коммуникабельность">Коммуникабельность<br><br>
+                <input type="hidden" name="qual10" value="">
+                <label>Выберите возраст Вашего ребенка:</label><br>
+                <input type="radio" name="age" value="от 6 до 8 лет" required>от 6 до 8 лет<br>
+                <input type="radio" name="age" value="от 9 до 11 лет">от 9 до 11 лет<br>
+                <input type="radio" name="age" value="от 12 до 14 лет">от 12 до 14 лет<br>
+                <input type="radio" name="age" value="от 15 до 18 лет">от 15 до 18 лет<br><br>
+                <input type="submit" value="Подобрать объединения">
+            </form></a>
+        </div>
+    </body>
+</html>
